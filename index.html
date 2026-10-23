@@ -668,15 +668,18 @@
             </div>
           </div>
 
-          <!-- 菩薩德行與法義短語 -->
-          <div class="bg-amber-100/60 border border-amber-300/80 rounded-2xl p-4 mb-6 text-left space-y-1.5 font-serif shadow-inner">
-            <div class="flex items-center gap-2 text-xs font-bold text-amber-900">
-              <span>🌿 殊勝德行：</span>
-              <span class="text-amber-800 font-normal">{{ currentUnlockedBadge.virtue }}</span>
+          <!-- 菩薩德行與核心悲願 -->
+          <div class="bg-amber-100/70 border border-amber-300/90 rounded-2xl p-4 mb-6 text-left space-y-2 font-serif shadow-inner">
+            <div class="text-xs font-bold text-amber-950 flex items-center gap-1">
+              <span>🕊️ 核心悲願：</span>
             </div>
-            <p class="text-xs text-zen-700 leading-relaxed">
-              {{ currentUnlockedBadge.description }}
+            <p class="text-xs text-amber-900 leading-relaxed">
+              {{ currentUnlockedBadge.vow }}
             </p>
+            <div class="pt-2 border-t border-amber-200/80 text-[11px] text-emerald-900 font-medium flex items-start gap-1">
+              <span class="font-bold flex-shrink-0">🌸 修行祝福：</span>
+              <span>{{ currentUnlockedBadge.blessing }}</span>
+            </div>
           </div>
 
           <!-- 操作按鈕 -->
@@ -720,30 +723,42 @@
                 第 {{ selectedBadge.day }} 天解鎖 ｜ #0{{ selectedBadge.day }}
               </div>
               <h3 class="text-2xl font-bold text-zen-900 font-serif">{{ selectedBadge.title }}</h3>
-              <p class="text-xs text-zen-500 font-sans mt-0.5">{{ selectedBadge.englishName }}</p>
+              
               <div class="mt-2 text-xs font-bold text-amber-800">
                 ✨ 弘願德行：{{ selectedBadge.virtue }}
               </div>
             </div>
           </div>
 
-          <!-- 詳細法義與法相特徵 -->
-          <div class="space-y-4 text-xs font-serif text-zen-700 leading-relaxed">
-            <div>
-              <h4 class="font-bold text-zen-900 mb-1 flex items-center gap-1.5 text-sm">
-                <span>🪷</span> 法相特徵與象徵
+          <!-- 菩薩悲願與修行指引 (無任何 Prompt 或系統指令) -->
+          <div class="space-y-3.5 text-xs font-serif text-zen-700 leading-relaxed">
+            <!-- 核心悲願 -->
+            <div class="bg-amber-50/80 border border-amber-200/90 rounded-2xl p-4 shadow-sm">
+              <h4 class="font-bold text-amber-950 mb-1.5 flex items-center gap-1.5 text-sm">
+                <span>🕊️</span> 核心悲願
               </h4>
-              <p class="bg-zen-50 p-3 rounded-xl border border-zen-200">
-                {{ selectedBadge.description }}
+              <p class="text-amber-900 leading-relaxed text-xs sm:text-[13px] font-serif">
+                {{ selectedBadge.vow }}
               </p>
             </div>
 
-            <div>
-              <h4 class="font-bold text-zen-900 mb-1 flex items-center gap-1.5 text-sm">
-                <span>🎨</span> Q版徽章生圖 Prompt 設計
+            <!-- 今日修行祝福 -->
+            <div class="bg-emerald-50/70 border border-emerald-200/80 rounded-2xl p-4 shadow-sm">
+              <h4 class="font-bold text-emerald-950 mb-1.5 flex items-center gap-1.5 text-sm">
+                <span>🌸</span> 今日修行祝福
               </h4>
-              <p class="bg-zen-50 p-3 rounded-xl border border-zen-200 text-zen-600 font-sans text-[11px] break-words">
-                {{ selectedBadge.prompt }}
+              <p class="text-emerald-900 leading-relaxed text-xs sm:text-[13px] font-serif">
+                {{ selectedBadge.blessing }}
+              </p>
+            </div>
+
+            <!-- 法相特徵與象徵 -->
+            <div class="bg-zen-50/90 border border-zen-200 rounded-2xl p-3.5">
+              <h4 class="font-bold text-zen-900 mb-1 flex items-center gap-1.5 text-xs">
+                <span>🪷</span> 法相特徵與意涵
+              </h4>
+              <p class="text-zen-600 leading-relaxed text-xs">
+                {{ selectedBadge.description }}
               </p>
             </div>
           </div>
@@ -1076,102 +1091,102 @@
 
     const BODHISATTVAS = [
       {
-        day: 1,
-        id: "guanyin",
-        name: "觀世音菩薩",
-        title: "大悲觀世音菩薩",
-        englishName: "Avalokitesvara (Guan Yin)",
-        virtue: "大悲 (Compassion)・甘露遍灑",
-        filename: "01_觀世音菩薩.jpg",
-        fallbackFile: "guan_yin.png",
-        description: "頂戴化佛寶冠，手持淨瓶與楊柳枝，象徵慈悲度眾、拔苦予樂。",
-        prompt: "A cute Chibi-style Buddhist Bodhisattva illustration, wearing a crown with a small Buddha, holding a white pure vase and a green willow branch..."
+            "day": 1,
+            "id": "guanyin",
+            "name": "觀世音菩薩",
+            "title": "大慈大悲 觀世音菩薩",
+            "virtue": "大慈大悲・苦海渡舟",
+            "filename": "01_觀世音菩薩.jpg",
+            "fallbackFile": "guan_yin.png",
+            "vow": "「千處祈求千處應，苦海常作渡人舟。」尋聲救苦，聞聲救苦，帶給世人無條件的慈悲與安穩。",
+            "blessing": "願您的心如同清淨楊柳水，洗滌塵勞，慈悲待人。",
+            "description": "頂戴化佛寶冠，手持淨瓶與楊柳枝，象徵慈悲度眾、甘露遍灑、拔苦予樂。"
       },
       {
-        day: 2,
-        id: "ksitigarbha",
-        name: "地藏王菩薩",
-        title: "大願地藏王菩薩",
-        englishName: "Ksitigarbha",
-        virtue: "大願 (Great Vow)・宏誓弘深",
-        filename: "02_地藏王菩薩.jpg",
-        fallbackFile: "ksitigarbha.png",
-        description: "現出家沙門相，手持九環錫杖與發光如意寶珠，象徵「地獄不空，誓不成佛」之宏誓弘願。",
-        prompt: "A cute Chibi-style Buddhist Bodhisattva illustration, monk appearance with a shaved head, holding a golden staff with rings in one hand..."
+            "day": 2,
+            "id": "ksitigarbha",
+            "name": "地藏王菩薩",
+            "title": "大願力 地藏王菩薩",
+            "virtue": "大悲大願・堅忍不拔",
+            "filename": "02_地藏王菩薩.jpg",
+            "fallbackFile": "ksitigarbha.png",
+            "vow": "「地獄不空，誓不成佛；眾生度盡，方證菩提。」展現大無畏的願力與堅忍不拔的實踐精神。",
+            "blessing": "願您的發心堅如大地，承載考驗，穩步前行。",
+            "description": "現出家沙門相，手持九環錫杖與發光如意寶珠，象徵「地獄不空，誓不成佛」之宏誓弘願。"
       },
       {
-        day: 3,
-        id: "manjusri",
-        name: "文殊師利菩薩",
-        title: "大智文殊師利菩薩",
-        englishName: "Manjusri",
-        virtue: "大智 (Wisdom)・智慧明燈",
-        filename: "03_文殊師利菩薩.jpg",
-        fallbackFile: "manjusri.png",
-        description: "頭頂五髻象徵五智，右手持斬斷煩惱的智慧利劍，左手持青蓮花及般若梵夾經卷。",
-        prompt: "A cute Chibi-style Buddhist Bodhisattva illustration, hair tied in five topknots, holding a wisdom sword in the right hand..."
+            "day": 3,
+            "id": "manjusri",
+            "name": "文殊師利菩薩",
+            "title": "大智慧 文殊師利菩薩",
+            "virtue": "大智大慧・斷惑證真",
+            "filename": "03_文殊師利菩薩.jpg",
+            "fallbackFile": "manjusri.png",
+            "vow": "「智慧如劍，斬斷煩惱。」象徵明辨是非、洞察真理的般若智慧。",
+            "blessing": "願智慧之劍破除迷網，使您今日看清真相，明理而行。",
+            "description": "頭頂五髻象徵五智，右手持斬斷煩惱的智慧利劍，左手持青蓮花及般若梵夾經卷。"
       },
       {
-        day: 4,
-        id: "samantabhadra",
-        name: "普賢菩薩",
-        title: "大行普賢菩薩",
-        englishName: "Samantabhadra",
-        virtue: "大行 (Action)・行願無盡",
-        filename: "04_普賢菩薩.jpg",
-        fallbackFile: "samantabhadra.png",
-        description: "頭戴華美寶冠，手持如意或蓮花，座旁有象徵六度波羅蜜的可愛六牙白象。",
-        prompt: "A cute Chibi-style Buddhist Bodhisattva illustration, wearing an ornate crown, holding a Ruyi scepter or lotus..."
+            "day": 4,
+            "id": "samantabhadra",
+            "name": "普賢菩薩",
+            "title": "大行願 普賢菩薩",
+            "virtue": "大行大願・知行合一",
+            "filename": "04_普賢菩薩.jpg",
+            "fallbackFile": "samantabhadra.png",
+            "vow": "「知行合一，廣大行願。」將菩提心落實在每一個日常生活的細節與行動中。",
+            "blessing": "願您的每一個微小善行，都成為圓滿菩提的巨大資糧。",
+            "description": "頭戴華美寶冠，手持如意或蓮花，座旁有象徵六度波羅蜜的可愛六牙白象。"
       },
       {
-        day: 5,
-        id: "mahasthaprapta",
-        name: "大勢至菩薩",
-        title: "大精進大勢至菩薩",
-        englishName: "Mahasthaprapta",
-        virtue: "大勢 (Strength)・智慧光照",
-        filename: "05_大勢至菩薩.jpg",
-        fallbackFile: "mahasthaprapta.png",
-        description: "寶冠中有寶瓶盛滿智慧光，雙手合十（合掌印）並持盛開藍蓮花，以智慧光普照一切。",
-        prompt: "A cute Chibi-style Buddhist Bodhisattva illustration, wearing a crown featuring a tiny jeweled pitcher, hands in prayer..."
+            "day": 5,
+            "id": "mahasthaprapta",
+            "name": "大勢至菩薩",
+            "title": "大精進 大勢至菩薩",
+            "virtue": "大勢大能・淨念相繼",
+            "filename": "05_大勢至菩薩.jpg",
+            "fallbackFile": "mahasthaprapta.png",
+            "vow": "「都攝六根，淨念相繼。」以無上的智慧光芒普照一切，引導眾生專注精進。",
+            "blessing": "願您的心念專一不散亂，精進修行，燈火不熄。",
+            "description": "寶冠中有寶瓶盛滿智慧光，雙手合十（合掌印）並持盛開藍蓮花，以智慧光普照一切。"
       },
       {
-        day: 6,
-        id: "maitreya",
-        name: "彌勒菩薩",
-        title: "大慈彌勒菩薩",
-        englishName: "Maitreya",
-        virtue: "大慈 (Loving Kindness)・歡喜包容",
-        filename: "06_彌勒菩薩.jpg",
-        fallbackFile: "maitreya.png",
-        description: "面帶慈祥歡喜的笑容，身著寬鬆僧袍，手持乾坤布袋與念珠，滿心包容天下。",
-        prompt: "A cute Chibi-style Buddhist Bodhisattva illustration, beaming with a big joyful smile, wearing loose robes..."
+            "day": 6,
+            "id": "maitreya",
+            "name": "彌勒菩薩",
+            "title": "大慈心 彌勒菩薩",
+            "virtue": "大慈大喜・包容天下",
+            "filename": "06_彌勒菩薩.jpg",
+            "fallbackFile": "maitreya.png",
+            "vow": "「大肚包容，常樂我淨。」以歡喜、包容與慈悲笑看人間，預示著光明的未來。",
+            "blessing": "願您今日常保歡喜笑容，包容順逆，心胸寬廣。",
+            "description": "面帶慈祥歡喜的笑容，身著寬鬆僧袍，手持乾坤布袋與念珠，滿心包容天下。"
       },
       {
-        day: 7,
-        id: "akasagarbha",
-        name: "虛空藏菩薩",
-        title: "大福德虛空藏菩薩",
-        englishName: "Akasagarbha",
-        virtue: "大福 (Fortune & Wisdom)・福智如虛空",
-        filename: "07_虛空藏菩薩.jpg",
-        fallbackFile: "akasagarbha.png",
-        description: "頭戴五佛寶冠，手持鑲寶利劍與綻放微光珠寶的蓮花，福德與智慧廣大如虛空。",
-        prompt: "A cute Chibi-style Buddhist Bodhisattva illustration, wearing a Five-Buddha crown, holding a jewel-topped sword..."
+            "day": 7,
+            "id": "akasagarbha",
+            "name": "虛空藏菩薩",
+            "title": "大虛空 虛空藏菩薩",
+            "virtue": "大空大福・福智無量",
+            "filename": "07_虛空藏菩薩.jpg",
+            "fallbackFile": "akasagarbha.png",
+            "vow": "「智慧如虛空，寶藏無窮盡。」擁有如蒼穹般無邊無際的福德與智慧寶藏，滿足一切善願。",
+            "blessing": "願您的內在寶藏被無限開發，福慧雙修，豐盛圓滿。",
+            "description": "頭戴五佛寶冠，手持鑲寶利劍與綻放微光珠寶的蓮花，福德與智慧廣大如虛空。"
       },
       {
-        day: 8,
-        id: "bhaisajyaguru",
-        name: "藥師琉璃光如來",
-        title: "藥師琉璃光如來",
-        englishName: "Bhaisajyaguru",
-        virtue: "琉璃光 (Healing)・身心安康",
-        filename: "08_藥師琉璃光如來.jpg",
-        fallbackFile: "bhaisajyaguru.png",
-        description: "佛陀螺髮相，周身透出淡藍琉璃光芒，手捧藥缽或甘露葫蘆，消災延壽、拔除身心諸苦疾。",
-        prompt: "A cute Chibi-style Buddhist Bodhisattva illustration, Buddha appearance with spiral hair curls, subtle pale blue aura..."
+            "day": 8,
+            "id": "bhaisajyaguru",
+            "name": "藥師琉璃光如來",
+            "title": "大醫王 藥師琉璃光如來",
+            "virtue": "大願大醫・身心安樂",
+            "filename": "08_藥師琉璃光如來.jpg",
+            "fallbackFile": "bhaisajyaguru.png",
+            "vow": "「東方琉璃世界，消災延壽，身如琉璃，內外明徹。」發十二大願拔除眾生身心一切疾苦暗瞑。",
+            "blessing": "願您的身心明淨如琉璃，遠離憂惱與病苦，平安吉祥，光明遍照。",
+            "description": "佛陀螺髮相，周身透出淡藍琉璃光芒，手捧藥缽或甘露葫蘆，消災延壽、拔除身心諸苦疾。"
       }
-    ];
+];
 
     // ==========================================
     // 4. Vue 3 核心應用程式實例
